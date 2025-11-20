@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Booking Form | world adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<body>
+  <div class="container">
+    <div class="title">Booking Details Form</div>
+    <div class="content">
+      <form id="booking-form">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" id="fullName" name="fullName" oninput="validateInput(event)" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your login password" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Aadhaar no</span>
+            <input type="number" id="aadhaarNo" name="aadhaarNo" placeholder="Enter your Aadhaar no" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Total people</span>
+            <input type="number" id="totalPeople" name="totalPeople" min="1" required>
+          </div>
+          
+          <div class="input-field">
+            <label>Packages</label>
+            <select id="package" name="package" required>
+              <option disabled selected>Select Package</option>
+              <option value="3days/4000">3days/4000</option>
+              <option value="5days/6000">5days/6000</option>
+              <option value="7days/8000">7days/8000</option>
+              <option value="9days/10000">9days/10000</option>
+            </select>
+          </div>
+    
+          <div id="error-message" style="color: red; display: none;"></div>
+          <div id="success-message" style="color: green; display: none;"></div>
+          
+          <button type="submit" class="sumbit">
+            <span class="btnText">NEXT</span>
+          </button>
+        </div>
+      </form> 
+    </div>      
+  </div>
+  
+  <script>
+    // API Configuration
+    const API_BASE_URL = 'http://localhost:3000/api/auth';
+    const AUTH_PAGE_URL = '../sign/index.html';
+
+    function validateInput(event) {
+      var input = event.target.value;
+      var regex = /[^a-zA-Z\s]/g;
+      event.target.value = input.replace(regex, '');
+    }
+
+    // Get user from localStorage
+    function getUserFromStorage() {
+      const userStr = localStorage.getItem('user');
+      if (!userStr) {
+        return null;
+      }
+      try {
+        return JSON.parse(userStr);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function redirectToAuthWithMessage(message) {
+      const errorEl = document.getElementById('error-message');
+      errorEl.textContent = message;
+      errorEl.style.display = 'block';
+      setTimeout(() => {
+        window.location.href = AUTH_PAGE_URL;
+      }, 1500);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = getUserFromStorage();
+      if (!user || !user.id) {
+        redirectToAuthWithMessage('Please register or login to continue to booking.');
+      }
+    });
+
+    // Booking form handler
+    document.getElementById('booking-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const user = getUserFromStorage();
+      if (!user || !user.id) {
+        redirectToAuthWithMessage('Please register or login first.');
+        return;
+      }
+
+      const fullName = document.getElementById('fullName').value;
+      const loginPassword = document.getElementById('loginPassword').value;
+      const aadhaarNo = document.getElementById('aadhaarNo').value;
+      const totalPeople = document.getElementById('totalPeople').value;
+      const packageName = document.getElementById('package').value;
+
+      // Verify password first
+      try {
+        const loginResponse = await fetch(`${API_BASE_URL}/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: user.email,
+            password: loginPassword
+          })
+        });
+
+        const loginData = await loginResponse.json();
+        
+        if (!loginData.success) {
+          document.getElementById('error-message').textContent = 'Invalid password. Please login first.';
+          document.getElementById('error-message').style.display = 'block';
+          return;
+        }
+
+        // Save booking details
+        const bookingResponse = await fetch(`${API_BASE_URL}/booking`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: user.id,
+            fullName: fullName,
+            aadhaarNo: aadhaarNo,
+            totalPeople: parseInt(totalPeople),
+            package: packageName
+          })
+        });
+
+        const bookingData = await bookingResponse.json();
+
+        if (bookingData.success) {
+          document.getElementById('success-message').textContent = 'Booking details saved! Redirecting to payment...';
+          document.getElementById('success-message').style.display = 'block';
+          setTimeout(() => {
+            window.location.href = '../EMAIL/index.html';
+          }, 1500);
+        } else {
+          document.getElementById('error-message').textContent = bookingData.message || 'Failed to save booking details';
+          document.getElementById('error-message').style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Booking error:', error);
+        document.getElementById('error-message').textContent = 'Network error. Please check if the server is running.';
+        document.getElementById('error-message').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

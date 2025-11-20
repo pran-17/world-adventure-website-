@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Web Design  | world Adventure</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <div class="nav__bar">
+          <div class="logo">
+            <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0xU58Uuvfl16psSjfySDAinYofJBSHrtYFQ&s  " alt="logo" /></a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#places">Places</a></li>
+          <li><a href="#booking">Booking</a></li>
+          <li><a href="#about">About</a></li>
+          <li>
+            <button class="btn book-now-login" type="button" data-login-btn>Login</button>
+          </li>
+        </ul>
+      </nav>
+      <div class="section__container header__container" id="home">
+        <h1>No Matter Where You Are Going From, We Take You There</h1>
+        <p>
+          You do not have the right to remain silent. Let us know what it takes
+          to challenge you
+        </p>
+        <div class="booking">
+          <div class="booking__type" id="booking-type">
+            <div class="active">One Way</div>
+            <div>Round Trip</div>
+            <div>Multi City</div>
+          </div>
+          <form action="/" class="booking__form">
+            <div class="booking__input">
+              <label for="arrival">FROM</label>
+              <input type ="text"   onkeydown="isinputletter(event)" placeholder="Departure" />
+            </div>
+            <div class="booking__input">
+              <label for="departure">TO</label>
+              <input type="text" placeholder="arrival" />
+            </div>
+            <div class="booking__input">
+              <label for="date">DATE</label>
+              <input type="date" placeholder="Date of depature" />
+            </div>
+          </form>
+          <div class="booking__btn">
+            <button class="btn" type="button" data-book-btn>Book Now</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section__container service__container" id="places">
+      <h2 class="section__header">Our places</h2>
+      <p class="section__description">
+        Embark on unforgettable journeys with our travel and tourism platform,
+        where wanderlust meets convenience.
+      </p>
+      <div class="service__grid">
+        <div class="service">
+          <a href="https:\\www.shutterstock.com\\search\\ooty">
+          <img src="https:\\encrypted-tbn0.gstatic.com\images?q=tbn:ANd9GcSDB4YDIY87pWiZBQnfhLvLzVm-qnBT3br3Sg&s" alt="service" /></a>
+          <div>
+            <div>
+              <h4>OOTY</h4>
+              <p>
+                Immerse yourself in the allure of the open sea as you set sail
+                on a meticulously crafted cruise experience.
+              </p>
+            </div>
+            <div class="service">
+              <a href="https:\\www.shutterstock.com\\search\\ooty">
+              <button class="btn">See All</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="service">
+          <a href="https://www.holidify.com//places//varkala//photos.html">
+          <img src="https://images.unsplash.com/photo-1697193375091-f9bfe3d7ed7b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="service" /></a>
+          <div>
+            <div>
+              <h4>VARKALA</h4>
+              <p>
+               Experience unparalleled convenience with our  travel journey
+              </p>
+            </div>
+            <div class="service__btn">
+              <a href= "https://www.holidify.com//places//varkala//photos.html">
+              <button class="btn">See All</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="service">
+          <a href="https:/in.pinterest.com/bfktravelblog/tourist-bus-pics/">
+          <img src="places-3.jpg" alt="service" /></a>
+
+          <div>
+            <div>
+              <h4>VEHICLES</h4>
+              <p>
+                Secure your wings to the world with our BUS Ticket service, your
+                gateway to seamless travel.
+              </p>
+            </div>
+            <div class="service">
+              <a href="https:/in.pinterest.com/bfktravelblog/tourist-bus-pics/">
+              <button class="btn">See All</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="service">
+          <img src="places-4.jpg" alt="service" />
+          <div>
+            <div>
+              <h4>HOTELS</h4>
+              <p>
+                Browse through a curated selection of handpicked hotels, each
+                chosen for its quality, amenities, and prime locations.
+              </p>
+            </div>
+            <div class="service__btn">
+              
+              <button class="btn">See All</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container offer__container" id="booking">
+      <div class="offer__header">
+        <h2 class="section__header">BOOKING DETAILS</h2>
+        <a href="#">See All</a>
+      </div>
+      <div class="offer__grid">
+        <div class="offer__card">
+          <img src="https://t3.ftcdn.net/jpg/04/16/66/30/360_F_416663024_MDoibghS8s4oxHea0PjRezhDJy17RtPd.jpg" alt="offer" />
+          <h4> CBE TO OOTY</h4>
+          <div>
+            <button class="btn" type="button" data-book-btn>Book Now</button>
+          </div>
+        </div>
+        <div class="offer__card">
+          <img src="https://www.thatgoangirl.com/wp-content/uploads/2024/03/Varkala-south-cliff-1440x1081.jpg" alt="offer" />
+          <h4>CBE TO VARKALA</h4>
+          
+          <div>
+            <button class="btn" type="button" data-book-btn>Book Now</button>
+          </div>
+        </div>
+        <div class="offer__card">
+          <img src="https://static.vecteezy.com/system/resources/previews/050/686/429/large_2x/maldives-beaches-is-beautiful-tourist-place-beautiful-background-free-photo.jpg" alt="offer" />
+          <h4>CHENNAI TO GOA</h4>
+          
+          <div>
+            <button class="btn" type="button" data-book-btn>Book Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container about__container" id="about">
+      <div class="about__image">
+        <img src="about.png" alt="about" />
+      </div>
+      <div class="about__content">
+        <h2 class="section__header">Easy Way To Go To Your Next Station</h2>
+        <p class="section__description">
+          Navigate the world effortlessly with our user-friendly platform,
+          connecting you to the finest destinations and accommodations.
+        </p>
+        <ul>
+          <li>
+            <span><i class="ri-checkbox-circle-line"></i></span>
+            Easily find and compare transportation options, ensuring a
+            hassle-free journey to your next destination.
+          </li>
+          <li>
+            <span><i class="ri-checkbox-circle-line"></i></span>
+            Enjoy a straightforward and quick booking experience for flights,
+            trains, and other transportation modes, all in one place.
+          </li>
+        </ul>
+        <div class="about__links">
+          <a href="#">
+            <img src="google-play.png" alt="google-play" />
+          </a>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="client" id="client">
+      <div class="section__container client__container">
+        <h2 class="section__header">What Our Client Say</h2>
+        <p class="section__description">
+          Discover the stories of wanderlust and cherished memories through the
+          eyes of our valued clients.
+        </p>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="client__card">
+                
+                <h4>James </h4>
+                <p>web developer</p>
+                <div class="client__ratings">
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-half-fill"></i></span>
+                  <span><i class="ri-star-line"></i></span>
+                </div>
+                <p>
+                  As a frequent traveler, I rely on this website for all my
+                  journeys. The 24/7 customer support has been a game-changer.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="client__card">
+                
+                <h4>Sarah Thompson</h4>
+                <p>Marketing Executive</p>
+                <div class="client__ratings">
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-line"></i></span>
+                </div>
+                <p>
+                  Booking my dream vacation was a breeze with this platform! The
+                  seamless hotel booking made my trip unforgettable.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="client__card">
+                
+                <h4>rahul</h4>
+                <p>Graphic Designer</p>
+                <div class="client__ratings">
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-line"></i></span>
+                  <span><i class="ri-star-line"></i></span>
+                </div>
+                <p>
+                  The local guides and experiences offered by this platform
+                  added a whole new dimension to my travels.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="client__card">
+                
+                <h4>Michael </h4>
+                <p>Business Analyst</p>
+                <div class="client__ratings">
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-half-fill"></i></span>
+                  <span><i class="ri-star-line"></i></span>
+                </div>
+                <p>
+                  The convenience of booking flights, accommodations, and
+                  transportation all in one place is a game-changer.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="client__card">
+                
+                <h4>David </h4>
+                <p>Adventure Enthusiast</p>
+                <div class="client__ratings">
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                  <span><i class="ri-star-fill"></i></span>
+                </div>
+                <p>
+                  The travel resources and tips section on this platform is a
+                  goldmine for anyone looking to make the most of their travels.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="logo">
+            <a href="#"><img src="logo.png" alt="logo" /></a>
+          </div>
+          <p>
+            Explore the world with ease and excitement through our comprehensive
+            travel platform. Your journey begins here, where seamless planning
+            meets unforgettable experiences.
+          </p>
+          <ul class="footer__socials">
+            <li>
+              <a href="#"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-youtube-line"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">buses</a>
+            </li>
+            <li>
+              <a href="#">Hotels</a>
+            </li>
+            <li>
+              <a href="#">Cruise</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="#">
+                <span><i class="ri-phone-fill"></i></span> +91 9791549563
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-record-mail-line"></i></span> info@world adventure
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-map-pin-2-fill"></i></span> Tamil nadu, India
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Subscribe</h4>
+          <form action="/">
+            <input type="text" placeholder="Enter your email" />
+            <button class="btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2023 World adventure. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+      function isInputLetter(evt){
+                var ch = String.fromCharCode(evt.which);
+                
+                if(!(/[a-zA-Z]/.test(ch) || ch === " " || evt.keyCode === 8)){
+                    evt.preventDefault();
+                }
+                 console.log(evt.keyCode);
+                
+            }
+      const LOGIN_PAGE_URL = "../sign/index.html";
+      const BOOKING_PAGE_URL = "../login/index.html";
+
+      function getStoredUser() {
+        const userStr = localStorage.getItem("user");
+        if (!userStr) return null;
+        try {
+          const parsed = JSON.parse(userStr);
+          return parsed && parsed.id ? parsed : null;
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function handleProtectedBooking(event) {
+        event.preventDefault();
+        const user = getStoredUser();
+        if (!user) {
+          alert("Please login or register before booking your trip.");
+          window.location.href = LOGIN_PAGE_URL;
+          return;
+        }
+        window.location.href = BOOKING_PAGE_URL;
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const bookButtons = document.querySelectorAll("[data-book-btn]");
+        bookButtons.forEach((button) => {
+          button.addEventListener("click", handleProtectedBooking);
+        });
+      });
+    </script>
+  </body>
+</html>
